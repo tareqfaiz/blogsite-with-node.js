@@ -1,6 +1,9 @@
 #project-wide
 .DS_Store
 
+#environment file
+.env
+
 # Logs
 logs
 *.log

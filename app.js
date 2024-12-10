@@ -2,13 +2,14 @@ const express = require('express');
 const morgan = require ('morgan');
 const mongoose = require ('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
+require('dotenv').config(); // Import dotenv to load variables from the .env file
 
 //express app
 const app = express();
 
-//connect to mongodb and //listen for requests
+//connect to mongodb and listen for requests
 
-const dbURI = 'mongodb+srv://finnbangla:1234@nodejs-learning.3zjgw.mongodb.net/nodejs-learning?retryWrites=true&w=majority&appName=Nodejs-learning';
+const dbURI = process.env.MONGO_URI; // Use the environment variable
 mongoose.connect(dbURI)
    .then((result) => app.listen(3000))
    .catch((err) => console.log (err));
